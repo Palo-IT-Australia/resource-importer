@@ -1,0 +1,14 @@
+[
+	{
+	  "name": "button",
+	  "value": "randomstuff"
+	},
+	{
+	  "name": "textview",
+	  "value": "some random text goes here"
+	},
+	{
+	  "name": "image",
+	  "value": "image with cats"
+	}
+]
