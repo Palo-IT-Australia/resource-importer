@@ -1,0 +1,15 @@
+Description (Optional),Key (Mandatory),Value - $String as placeholder,,Sample ONLY - Generated iOS format,Sample ONLY - Generated Android format
+// Generic,,,,// Generic ,<!-- Generic -->
+Generic button title Continue,generic.button.continue,Continue,,"/* Generic button title Continue */
+""generic.button.continue"" = ""Continue"";","<!-- Generic button title Continue -->
+<string name=""generic_button_continue"">Continue</string>"
+,,,,,
+,,,,,
+,,,,,
+// Section - Profile,,,,// Section - Profile,<!-- Section - Profile -->
+,profile.item.manageVehicles,Manage vehicles,,"""profile.item.manageVehicles"" = ""Manage vehicles"";","<string name=""profile_item_manageVehicles"">Manage vehicles</string>"
+,,,,,
+,,,,,
+,,,,,
+// Section - About,,,,// Section - About,<!-- Section - About -->
+,about.copyright.version,"$String, Housing & Development Board",,"""about.copyright.version"" = ""© %@, Housing & Development Board"";","<string name=""about_copyright_version"">© %s, Housing &amp; Development Board</string>"
