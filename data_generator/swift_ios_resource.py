@@ -4,7 +4,7 @@ from data.resource import Resource
 from data_generator.abstract_generator import AbstractGenerator
 
 class SwiftResourceGenerator(object):
-	
+
 	def __init__(self):
 		super().__init__()
 		self.stringGenerator = None

@@ -12,7 +12,7 @@ class StringGenerator():
 				else:
 					self.dict_array.append(f"/* {element.description} */")
 			if (element.name and element.value):
-				self.dict_array.append(f"\"{element.name.upper()}\" = \"{element.value.upper()}\";")
+				self.dict_array.append(f"\"{element.name}\" = \"{element.value}\";")
 
 	def write_strings_file(self, filename):
 		with open(filename, "w") as f:
