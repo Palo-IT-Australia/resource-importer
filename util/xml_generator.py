@@ -13,7 +13,8 @@ class XmlGenerator:
 		for element in self.data:
 			if (element.description):
 				root.append(ET.Comment(element.description))
-			ET.SubElement(root, "string", name=element.name).text = element.value
+			if (element.name and element.value):
+				ET.SubElement(root, "string", name=element.name).text = element.value
 		self.tree = ET.ElementTree(root)
 
 	def write_xml(self, filename):
