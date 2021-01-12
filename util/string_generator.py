@@ -6,8 +6,14 @@ class StringGenerator():
 
 	def generate_strings_file(self):
 		for element in self.data:
-			self.dict_array.append(f"\"{element.name.upper()}\" = \"{element.value.upper()}\"")
+			if (element.description):
+				if (element.description.startswith("//")):
+					self.dict_array.append(f"{element.description}")
+				else:
+					self.dict_array.append(f"/* {element.description} */")
+			if (element.name and element.value):
+				self.dict_array.append(f"\"{element.name.upper()}\" = \"{element.value.upper()}\";")
 
 	def write_strings_file(self, filename):
 		with open(filename, "w") as f:
-			f.write(";\n".join(self.dict_array))
+			f.write("\n".join(self.dict_array))

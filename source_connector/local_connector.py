@@ -17,4 +17,4 @@ class LocalConnector(AbstractConnector):
 		self.parsed_data = self.parser.parse()
 
 	def convert_data(self):
-		return [ Resource(element['name'], element['value']) for element in self.parsed_data ]
+		return [ Resource(element['name'], element['value'], element['description']) for element in self.parsed_data ]

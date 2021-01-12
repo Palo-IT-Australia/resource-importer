@@ -15,6 +15,7 @@ class CsvParser():
 	# temp function
 	# can store temporary keys in config file
 	def _rename_dict_keys(self, dict_row):
+		dict_row['description'] = dict_row.pop('Description (Optional)')
 		dict_row['name'] = dict_row.pop('Key (Mandatory)')
 		dict_row['value'] = dict_row.pop('Value - $String as placeholder')
 		return dict_row
@@ -22,6 +23,5 @@ class CsvParser():
 	def parse(self):
 		parsed_data = []
 		for row in self.data:
-			print(row)
 			parsed_data.append(row)
 		return parsed_data

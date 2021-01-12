@@ -4,3 +4,4 @@ from dataclasses import dataclass
 class Resource:
 	name: str
 	value: str
+	description: str

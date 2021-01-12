@@ -1,14 +1,17 @@
 [
 	{
 	  "name": "button",
-	  "value": "randomstuff"
+	  "value": "randomstuff",
+	  "description" : ""
 	},
 	{
 	  "name": "textview",
-	  "value": "some random text goes here"
+	  "value": "some random text goes here",
+	  "description" : ""
 	},
 	{
 	  "name": "image",
-	  "value": "image with cats"
+	  "value": "image with cats",
+	  "description" : ""
 	}
 ]

@@ -8,8 +8,11 @@ class XmlGenerator:
 		self.tree = None
 
 	def generate_xml(self):
+		comment = None
 		root = ET.Element("resources")
 		for element in self.data:
+			if (element.description):
+				root.append(ET.Comment(element.description))
 			ET.SubElement(root, "string", name=element.name).text = element.value
 		self.tree = ET.ElementTree(root)
 
