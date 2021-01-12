@@ -1,3 +1,5 @@
+import argparse
+
 from data_generator.android_resource import AndroidResourceGenerator
 from data_generator.swift_ios_resource import SwiftResourceGenerator
 from source_connector.local_connector import LocalConnector
@@ -35,5 +37,15 @@ def get_resources():
 	swiftResourceGenerator.transform_data(data)
 	swiftResourceGenerator.save_data("localization.strings")
 
+def set_source_and_platform(args):
+	return args
+
 if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+	parser.add_argument("source", help="set the data source")
+	parser.add_argument("platform", help="set the platform to generate files")
+	parser.add_argument("-f", "--fileformat", type=str, choices=["csv", "json", "xml"],
+                    help="set file format")
+	args = parser.parse_args()
+	set_source_and_platform(args)
 	get_resources()
