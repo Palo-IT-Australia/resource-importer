@@ -12,7 +12,7 @@ class XmlGenerator:
 		root = ET.Element("resources")
 		for element in self.data:
 			if (element.description):
-				root.append(ET.Comment(element.description))
+				root.append(ET.Comment(element.description.strip("// ")))
 			if (element.name and element.value):
 				ET.SubElement(root, "string", name=element.name).text = element.value
 		self.tree = ET.ElementTree(root)
