@@ -35,7 +35,7 @@ class ResourceImporter():
 		self.config = configuration_parser.parse_config()
 		
 	def _get_resources(self, source, platform, fileformat):
-		connector = source()
+		connector = source(self.config)
 		platform = platform()
 		parser = fileformat()
 

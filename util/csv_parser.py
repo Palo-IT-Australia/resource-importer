@@ -25,3 +25,7 @@ class CsvParser():
 		for row in self.data:
 			parsed_data.append(row)
 		return parsed_data
+
+	def open_google_sheets(self, data):
+		for row in data:
+			self.data.append(self._rename_dict_keys(row))

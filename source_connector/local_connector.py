@@ -3,7 +3,7 @@ from data.resource import Resource
 
 class LocalConnector(AbstractConnector):
 
-	def __init__(self):
+	def __init__(self, config):
 		super().__init__()
 		self.data = None
 		self.parsed_data = None
