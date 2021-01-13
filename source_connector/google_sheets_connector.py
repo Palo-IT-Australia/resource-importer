@@ -15,23 +15,36 @@ class GoogleSheetsConnector(AbstractConnector):
         self.credentials = config['googleapi']['GoogleApiCredentials']
         self.token = config['googleapi']['GoogleTokenFile']
         self.scopes = config['googleapi']['GoogleApiScopes']
+        self.config_sheets = config['googlesheets']
 
     def get_data(self, parser, resource_id):
         self.parser = parser
         token_credentials = TokenCredentials()
         creds = token_credentials.get_credentials(self.token, self.credentials, self.scopes)
 
+        sheet_id = self.config_sheets['GoogleSheetsId']
+        sheet_range = self.config_sheets['GoogleSheetsSheetName']
+
         service = build(self.service, self.version, credentials=creds)
 
         sheet = service.spreadsheets()
         result = sheet.values().get(spreadsheetId=sheet_id,
-                                    range=range).execute()
+                                    range=sheet_range).execute()
 
-        self.data = result.get('values', [])
+        self.data = self._convert_response_to_dict(result.get('values'))
 
     def parse_data(self):
         self.parser.open_google_sheets(self.data)
         self.parsed_data = self.parser.parse()
 
     def convert_data(self):
-        return [ Resource(element['name'], element['value']) for element in self.parsed_data ]
+        return [ Resource(element['name'], element['value'], element['description']) for element in self.parsed_data ]
+
+    def _convert_response_to_dict(self, values):
+        response_list = []
+        headers = values[0]
+        for i in range(1, len(values)):
+            mapping = dict(zip(headers, values[i]))
+            if (mapping):
+                response_list.append(mapping)
+        return response_list
